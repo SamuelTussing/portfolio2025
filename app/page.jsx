@@ -1,7 +1,46 @@
+"use client"
+
 import Link from "next/link"
+import { useState, useEffect } from "react"
 import "./styles/portfolio.css"
 
 export default function HomePage() {
+  const titles = ["Développeur web", "Graphiste", "Infographiste", "Curieux", "Référenceur SEO"]
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0)
+  const [displayedText, setDisplayedText] = useState("")
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [typingSpeed, setTypingSpeed] = useState(100)
+
+  useEffect(() => {
+    const currentTitle = titles[currentTitleIndex]
+
+    const handleTyping = () => {
+      if (!isDeleting) {
+        // Typing forward
+        if (displayedText.length < currentTitle.length) {
+          setDisplayedText(currentTitle.substring(0, displayedText.length + 1))
+          setTypingSpeed(100)
+        } else {
+          // Finished typing, wait then start deleting
+          setTimeout(() => setIsDeleting(true), 2000)
+        }
+      } else {
+        // Deleting
+        if (displayedText.length > 0) {
+          setDisplayedText(currentTitle.substring(0, displayedText.length - 1))
+          setTypingSpeed(50)
+        } else {
+          // Finished deleting, move to next title
+          setIsDeleting(false)
+          setCurrentTitleIndex((prev) => (prev + 1) % titles.length)
+        }
+      }
+    }
+
+    const timer = setTimeout(handleTyping, typingSpeed)
+    return () => clearTimeout(timer)
+  }, [displayedText, isDeleting, currentTitleIndex, typingSpeed, titles])
+
   return (
     <div className="page-container">
       {/* Navigation */}
@@ -27,10 +66,16 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content fade-in">
+          <div className="hero-images">
+            <img src="/hero-portfolio-images.png" alt="Portfolio examples" className="portfolio-gallery" />
+          </div>
+
           <p className="hero-greeting">Bonjour, je suis</p>
           <h1 className="hero-title">
-            Développeur Web
-            <span className="gradient-text">Full Stack</span>
+            <span className="typing-text">
+              {displayedText}
+              <span className="typing-cursor">|</span>
+            </span>
           </h1>
           <p className="hero-description">
             Je crée des expériences web modernes et performantes. Passionné par le code propre et les interfaces
@@ -38,7 +83,7 @@ export default function HomePage() {
           </p>
           <div className="hero-buttons">
             <Link href="/projects" className="btn btn-primary">
-              Voir mes projets →
+              Mes Projets
             </Link>
             <Link href="/about" className="btn btn-secondary">
               En savoir plus
