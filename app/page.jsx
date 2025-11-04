@@ -78,8 +78,7 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="hero-description">
-            Je crée des expériences web modernes et performantes. Passionné par le code propre et les interfaces
-            utilisateur intuitives.
+            Graphiste chevronné devenu développeur front, je fusionne créativité visuelle et expertise technique pour concevoir des expériences web uniques.
           </p>
           <div className="hero-buttons">
             <Link href="/projects" className="btn btn-primary">

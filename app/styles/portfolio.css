@@ -112,12 +112,14 @@ body {
 
 /* Hero Section */
 .hero-section {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   padding: var(--spacing-2xl) var(--spacing-lg);
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
 }
 
 .hero-content {
