@@ -5,13 +5,13 @@ import { useState, useEffect } from "react"
 import "./styles/portfolio.css"
 
 export default function HomePage() {
+  const titles = ["Développeur web", "Graphiste", "Infographiste", "Curieux", "Référenceur SEO"]
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0)
   const [displayedText, setDisplayedText] = useState("")
   const [isDeleting, setIsDeleting] = useState(false)
   const [typingSpeed, setTypingSpeed] = useState(100)
 
   useEffect(() => {
-    const titles = ["Développeur web", "Graphiste", "Infographiste", "Curieux", "Référenceur SEO"]
     const currentTitle = titles[currentTitleIndex]
 
     const handleTyping = () => {
