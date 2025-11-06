@@ -3,9 +3,10 @@ import "../styles/portfolio.css"
 
 export default function SkillsPage() {
   const skills = {
-    frontend: ["React", "Next.js", "JavaScript", "HTML5", "CSS3", "Vue.js", "TypeScript", "Responsive Design"],
-    backend: ["Node.js", "Express", "Python", "Django", "PostgreSQL", "MongoDB", "REST API", "GraphQL"],
-    tools: ["Git", "Docker", "VS Code", "Figma", "Webpack", "npm", "Postman", "Linux"],
+    frontend: ["React", "Next.js", "JavaScript", "HTML5", "CSS3", "Responsive Design","Wordpress","Prestashop"],
+    backend: ["Node.js", "Express", "MongoDB", "REST API"],
+    tools: ["Git", "VS Code", "Figma", "npm", "Postman"],
+    graphisme: ["Photoshop","Illustrator","Indesign"],
   }
 
   return (
@@ -62,6 +63,21 @@ export default function SkillsPage() {
               </h2>
               <div className="skill-badges">
                 {skills.backend.map((skill) => (
+                  <span key={skill} className="skill-badge">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* graph */}
+            <div className="skill-category">
+              <h2 className="skill-category-title">
+                <span className="skill-icon">🎨</span>
+                Graphisme
+              </h2>
+              <div className="skill-badges">
+                {skills.graphisme.map((skill) => (
                   <span key={skill} className="skill-badge">
                     {skill}
                   </span>
