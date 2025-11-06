@@ -117,8 +117,9 @@ const projectsData = {
   },
 }
 
-export default function ProjectDetailPage({ params }) {
-  const project = projectsData[params.id]
+export default async function ProjectDetailPage({ params }) {
+  const { id } = await params
+  const project = projectsData[id]
 
   if (!project) {
     return (
