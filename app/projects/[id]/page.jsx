@@ -75,7 +75,7 @@ const projectsData = {
     description: "Création d'un site One page sous NextJs",
     longDescription:
       "Projet personnel de création d'un site web responsive sous NextJs.",
-    image: "/api-documentation-interface.png",
+    image: "/travel-app-mockup.webp",
     technologies: ["NextJS","TypeScript","Tailwind","Git","Github"],
     features: [
       "Site responsive",
